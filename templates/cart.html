@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart</title>
+</head>
+<body>
+<h1>Product added to the cart</h1>
+<form formaction="/mycart" method="get">
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+        <th class="th-sm">#
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Product Name
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Product Price
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Product Description
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Brand Name
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+        <th class="th-sm">Buy
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+        <th class="th-sm">Delete
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {%for list in  cartproductslist %}
+    <tr>
+        <th scope="row">{{list['_id']}}</th>
+      <td>{{list['productname']}}</td>
+      <td>{{list['productprice']}}</td>
+        <td>{{list['productdesc']}}</td>
+        <td>{{list['brandname']}}</td>
+      <td><button formaction="/mycart"  name="btnaddtocart"  value="{{list['_id']}}" class="active" data-toggle="tooltip" title="addtocart">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+          </button></td>
+      <td><button name="btndeleteproduct" value="delete" class="active" data-toggle="tooltip" title="Delete">
+              <span class="glyphicon glyphicon-trash"></span>
+          </button></td>
+    </tr>
+  {%endfor%}
+  </tbody>
+</table>
+</form>
+</body>
+</html>

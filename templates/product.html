@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<form action="/mycart" method="post">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="/mycart">My cart</a></li>
+      <!--<li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>-->
+    </ul>
+  </div>
+</nav>
+</form>
+<!---------------------------------------table for adding product------------------------------------------------>
+<form action="/product" name="productform" method="get">
+<div class="container">
+  <table class="table table-hover">
+    <thead class="table-dark">
+      <tr >
+        <th >Product Name</th>
+          <th>Product Price</th>
+        <th>Product Description</th>
+        <th>Brand Name</th>
+          <th></th>
+          <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" name="productname" placeholder="name"></td>
+        <td><input type="text" name="productprice" placeholder="price"></td>
+        <td><input type="text" name="productdesc" placeholder="description"></td>
+          <td><input type="text" name="brandname" placeholder="Brand name"></td>
+          <td>
+              <button name="btnaddproduct" value="add" class="active" data-toggle="tooltip" title="Add">
+              <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</form>
+<!---------------------------------Product of tables------------------------------------------------------------------>
+<form formaction="/cart_products" method="post">
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+        <th class="th-sm">#
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Product Name
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Product Price
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Product Description
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+      <th class="th-sm">Brand Name
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+        <th class="th-sm">Buy
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+        <th class="th-sm">Delete
+        <i class="fa fa-sort float-right" aria-hidden="true"></i>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {%for list in  allproductslist %}
+    <tr>
+        <th scope="row">{{list['_id']}}</th>
+      <td>{{list['productname']}}</td>
+      <td>{{list['productprice']}}</td>
+        <td>{{list['productdesc']}}</td>
+        <td>{{list['brandname']}}</td>
+      <td><button formaction="/cart_products"  name="btnaddtocart"  value="{{list['_id']}}" class="active" data-toggle="tooltip" title="addtocart">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+          </button></td>
+      <td><button name="btndeleteproduct" value="delete" class="active" data-toggle="tooltip" title="Delete">
+              <span class="glyphicon glyphicon-trash"></span>
+          </button></td>
+    </tr>
+  {%endfor%}
+  </tbody>
+</table>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!Doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+ <div class="container">
+ <!---heading---->
+     <header class="heading"> Registration-Form</header><hr></hr>
+	<!---Form starting---->
+<form action="/signup" method="post" name="signupform" >
+	<div class="row ">
+	 <!--- For Name---->
+         <div class="col-sm-12">
+             <div class="row">
+			     <div class="col-xs-4">
+          	         <label class="firstname">First Name :</label> </div>
+		         <div class="col-xs-8">
+		             <input type="text" name="firstname" id="firstname" placeholder="Enter your First Name" class="form-control ">
+             </div>
+		      </div>
+		 </div>
+
+
+         <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="lastname">Last Name :</label></div>
+				<div class ="col-xs-8">
+		             <input type="text" name="lastname" id="lastname" placeholder="Enter your Last Name" class="form-control last">
+                </div>
+		     </div>
+		 </div>
+     <!-----For email---->
+		 <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="mail" >Email :</label></div>
+			     <div class="col-xs-8"	>
+			          <input type="email" name="email"  id="email"placeholder="Enter your email" class="form-control" >
+		         </div>
+		     </div>
+		 </div>
+	 <!-----For Password and confirm password---->
+          <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="pass">Password :</label></div>
+				  <div class="col-xs-8">
+			             <input type="password" name="password" id="password" placeholder="Enter your Password" class="form-control">
+				 </div>
+
+          </div>
+		  </div>
+
+     <!-----------For Phone number-------->
+         <div class="col-sm-12">
+		     <div class ="row">
+                 <div class="col-xs-4 ">
+			       <label class="gender">Account :</label>
+                 </div>
+                 <!-------------------radio button ------------------------>
+				 <div id="radiobuttons" style="padding:10px;color:white">
+    				<label class="radio-inline">
+      					<input type="radio" name="accounttype" value="buyer" checked><span>Buyer</span>
+    				</label>
+				 	<label class="radio-inline">
+      					<input type="radio" name="accounttype" value="seller"><span>Seller</span>
+    				</label>
+				 <label class="radio-inline">
+      					<input type="radio" name="accounttype" value="admin"><span>Admin</span>
+    				</label>
+				 </div>
+
+             </div>
+                 <div class="col-sm-12">
+		         <div class="btn btn-warning">
+                     <button type="submit">Submit</button>
+                 </div>
+		        </div>
+		  	 </div>
+
+
+		 </div>
+
+	 </div>
+</form>
+
+</div>
+
+</body>
+</html>

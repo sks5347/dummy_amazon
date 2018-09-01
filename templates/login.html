@@ -1,0 +1,48 @@
+
+  <head>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+  </head>
+  <body id="LoginForm">
+  <div class="container">
+      <h1 class="form-heading">login Form</h1>
+      <div class="login-form">
+          <div class="main-div">
+              <div class="panel">
+   <h2>Admin Login</h2>
+                  <p>Please enter your email and password</p>
+              </div>
+              <form id="Login" action="/login" method="post" >
+                  <div class="form-group">
+
+
+            <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email Address">
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="password" class="form-control" name="inputPassword" id="inputPassword" placeholder="Password">
+
+        </div>
+        <div class="forgot">
+        <a href="reset.html">Forgot password?</a>
+</div>
+         <p>
+        <button type="submit" name="loginbutton" value="login" class="btn btn-primary">Login</button>
+         </p>
+         <p>
+        <button type="submit" name="signupbutton" value="signup" class="btn btn-primary">Signup</button>
+        </p>
+    </form>
+    </div>
+</div>
+  </div>
+  </div>
+
+
+</body>
+</html>
